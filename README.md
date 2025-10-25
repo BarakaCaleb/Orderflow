@@ -107,17 +107,22 @@ Copy the output and add it under GitHub → Settings → SSH Keys.
 ## 🐳 Step 2: Run the Project with Docker Compose
 
 Once the repo is cloned:
-
+```
 git clone git@github.com:BarakaCaleb/orderflow.git
+```
+```
 cd orderflow
+```
+```
 docker compose up --build
+```
 
 
-This launches:
+### This launches:
 
-Django API
+`Django API`
 
-Go services
+`Go services`
 
 PostgreSQL
 
