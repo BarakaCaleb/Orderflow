@@ -25,9 +25,9 @@ It integrates high-performance Go microservices with Django for authentication, 
 
 You’ll be running a multi-language stack (Go + Python + Node), so you need clean isolation, reproducible builds, and Docker for parity with your collaborator.
 
-🧰 Step 1: Install Core Tools
-1️⃣ Windows Subsystem for Linux (WSL2)
+# 🧰 Step 1: Install Core Tools
 
+## 1️⃣ Windows Subsystem for Linux (WSL2)
 You must develop inside Linux for this stack — Go, Django, and Docker behave inconsistently on pure Windows.
 
 Setup:
@@ -39,9 +39,9 @@ Choose Ubuntu 24.04 LTS when prompted.
 Restart your system and open Ubuntu terminal.
 
 ## Then update packages:
-
+```
 sudo apt update && sudo apt upgrade -y
-
+```
 ## 2️⃣ Install Docker Desktop
 
 Download: https://www.docker.com/products/docker-desktop
@@ -49,51 +49,58 @@ Download: https://www.docker.com/products/docker-desktop
 ## Enable WSL2 integration for Ubuntu.
 
 Confirm Docker works inside WSL:
-
+```
 docker run hello-world
+```
 
 ## 3️⃣ Install Core Languages
 🐍 Python (for Django)
+```
 sudo apt install python3 python3-pip python3-venv -y
-
+```
 🦫 Go
+```
 sudo snap install go --classic
-
+```
 
 ## Verify:
-
+```
 go version
-
+```
 🧱 Node.js + npm (for React)
+```
 sudo apt install nodejs npm -y
-
-
+```
 Then:
-
+```
 npm install -g pnpm
-
-
+```
 (pnpm is cleaner and faster than npm/yarn)
 
 ## 4️⃣ Install PostgreSQL + Redis (for local dev)
 
 (Optional — if you won’t use Docker Compose yet)
-
+```
 sudo apt install postgresql redis-server -y
 sudo service postgresql start
 sudo service redis-server start
+```
 
 ## 5️⃣ Install Git and Configure It
+```
 sudo apt install git -y
 git config --global user.name "YourGithubName"
 git config --global user.email "your@email.com"
-
+```
 
 ## Then connect to GitHub using SSH:
-
+```
 ssh-keygen -t ed25519 -C "your@email.com"
-cat ~/.ssh/id_ed25519.pub
+```
 
+```
+cat ~/.ssh/id_ed25519.pub
+```
 
 Copy the output and add it under GitHub → Settings → SSH Keys.
 
