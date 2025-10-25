@@ -21,8 +21,7 @@ It integrates high-performance Go microservices with Django for authentication, 
 
 
 
-
-⚙️ PART 1 — Setting Up the Development Environment (Windows)
+## ⚙️ PART 1 — Setting Up the Development Environment (Windows)
 
 You’ll be running a multi-language stack (Go + Python + Node), so you need clean isolation, reproducible builds, and Docker for parity with your collaborator.
 
@@ -39,21 +38,21 @@ wsl --install
 Choose Ubuntu 24.04 LTS when prompted.
 Restart your system and open Ubuntu terminal.
 
-Then update packages:
+## Then update packages:
 
 sudo apt update && sudo apt upgrade -y
 
-2️⃣ Install Docker Desktop
+## 2️⃣ Install Docker Desktop
 
 Download: https://www.docker.com/products/docker-desktop
 
-Enable WSL2 integration for Ubuntu.
+## Enable WSL2 integration for Ubuntu.
 
 Confirm Docker works inside WSL:
 
 docker run hello-world
 
-3️⃣ Install Core Languages
+## 3️⃣ Install Core Languages
 🐍 Python (for Django)
 sudo apt install python3 python3-pip python3-venv -y
 
@@ -61,7 +60,7 @@ sudo apt install python3 python3-pip python3-venv -y
 sudo snap install go --classic
 
 
-Verify:
+## Verify:
 
 go version
 
@@ -76,7 +75,7 @@ npm install -g pnpm
 
 (pnpm is cleaner and faster than npm/yarn)
 
-4️⃣ Install PostgreSQL + Redis (for local dev)
+## 4️⃣ Install PostgreSQL + Redis (for local dev)
 
 (Optional — if you won’t use Docker Compose yet)
 
@@ -84,13 +83,13 @@ sudo apt install postgresql redis-server -y
 sudo service postgresql start
 sudo service redis-server start
 
-5️⃣ Install Git and Configure It
+## 5️⃣ Install Git and Configure It
 sudo apt install git -y
 git config --global user.name "Caleb Baraka"
 git config --global user.email "your@email.com"
 
 
-Then connect to GitHub using SSH:
+## Then connect to GitHub using SSH:
 
 ssh-keygen -t ed25519 -C "your@email.com"
 cat ~/.ssh/id_ed25519.pub
@@ -98,7 +97,7 @@ cat ~/.ssh/id_ed25519.pub
 
 Copy the output and add it under GitHub → Settings → SSH Keys.
 
-🐳 Step 2: Run the Project with Docker Compose
+## 🐳 Step 2: Run the Project with Docker Compose
 
 Once the repo is cloned:
 
