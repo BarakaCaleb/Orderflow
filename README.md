@@ -137,6 +137,6 @@ docker compose up --build
 [Django API](http://localhost:8000)
 
 
-📜 License
+# 📜 License
 
 MIT © 2025 Caleb Baraka
