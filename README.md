@@ -132,9 +132,9 @@ docker compose up --build
 
 ## Access on:
 
-[Frontend] → (http://localhost:3000)
+[Frontend](http://localhost:3000)
 
-[Django API] → (http://localhost:8000)
+[Django API](http://localhost:8000)
 
 
 📜 License
