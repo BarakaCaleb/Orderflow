@@ -31,9 +31,9 @@ You’ll be running a multi-language stack (Go + Python + Node), so you need cle
 You must develop inside Linux for this stack — Go, Django, and Docker behave inconsistently on pure Windows.
 
 Setup:
-
+```
 wsl --install
-
+```
 
 Choose Ubuntu 24.04 LTS when prompted.
 Restart your system and open Ubuntu terminal.
@@ -85,7 +85,7 @@ sudo service redis-server start
 
 ## 5️⃣ Install Git and Configure It
 sudo apt install git -y
-git config --global user.name "Caleb Baraka"
+git config --global user.name "YourGithubName"
 git config --global user.email "your@email.com"
 
 
