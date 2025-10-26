@@ -1,4 +1,4 @@
-# Modular OrderFlow Platform
+# Modular OrderFlow ERP
 Modern, Overengineered Full-Stack System for Learning and Scalability
 
 Tech Stack: Go • Django • React • TailwindCSS • ShadCN UI • PostgreSQL • Redis • Docker • OpenAI API
