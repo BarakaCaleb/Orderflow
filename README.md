@@ -117,7 +117,7 @@ cd orderflow
 docker compose up --build
 ```
 ## Follow the following branching conventions on this code base
-`main` → production-ready```
+`main` → production-ready
 
 `feature/*` → new features
 
