@@ -118,9 +118,11 @@ docker compose up --build
 ```
 ## Follow the following branching conventions on this code base
 ```main     → production-ready```
-```develop  → staging/integration```
+
 ```feature/* → new features```
+
 ```bugfix/*  → bug fixes```
+
 ```hotfix/*  → urgent prod fixes```
 
 ### This launches:
