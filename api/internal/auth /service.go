@@ -1,35 +1,52 @@
-package main
+package auth
 
 import (
-	"net/http"
+	"os"
+	"time"
 
-	"github.com/gin-gonic/gin"
+	"github.com/dgrijalva/jwt-go"
 	"golang.org/x/crypto/bcrypt"
+	"gorm.io/gorm"
 )
 
-type User struct {
-	ID       uint   `gorm:"primaryKey"`
-	Username string `gorm:"unique;not null"`
-	Email    string `gorm:"unique;not null"`
-	Password string `gorm:"not null"` // Storing hashed password
+var jwtKey = []byte(os.Getenv("JWT_SECRET"))
+
+type Claims struct {
+	UserID uint
+	jwt.StandardClaims
 }
 
-func RegisterUser(c *gin.Context) {
-	var newUser User
-	if err := c.ShouldBindJSON(&newUser); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
+// Hash password
+func HashPassword(password string) (string, error) {
+	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
+	return string(bytes), err
+}
 
-	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(newUser.Password), bcrypt.DefaultCost)
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to hash password"})
-		return
+// Check password
+func CheckPassword(hash, password string) bool {
+	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
+	return err == nil
+}
+
+// Generate token
+func GenerateToken(userID uint) (string, error) {
+	expirationTime := time.Now().Add(24 * time.Hour)
+	claims := &Claims{
+		UserID: userID,
+		StandardClaims: jwt.StandardClaims{
+			ExpiresAt: expirationTime.Unix(),
+		},
 	}
-	newUser.Password = string(hashedPassword)
-	if err := db.Create(&newUser).Error; err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create user"})
-		return
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+	return token.SignedString(jwtKey)
+}
+
+// Find a user by email
+func FindUserByEmail(db *gorm.DB, email string) (*User, error) {
+	var user User
+	result := db.Where("email = ?", email).First(&user)
+	if result.Error != nil {
+		return nil, result.Error
 	}
-	c.JSON(http.StatusCreated, gin.H{"message": "User registered successfully"})
+	return &user, nil
 }
