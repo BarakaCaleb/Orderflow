@@ -116,14 +116,6 @@ cd orderflow
 ```
 docker compose up --build
 ```
-## Follow the following branching conventions on this code base
-`main` → production-ready
-
-`feature/*` → new features
-
-`bugfix/*`  → bug fixes
-
-`hotfix/*`  → urgent prod fixes
 
 ### This launches:
 
@@ -143,6 +135,14 @@ docker compose up --build
 
 [Django API](http://localhost:8000)
 
+## Follow the following branching conventions on this code base
+`main` → production-ready
+
+`feature/*` → new features
+
+`bugfix/*`  → bug fixes
+
+`hotfix/*`  → urgent prod fixes
 
 # 📜 License
 
