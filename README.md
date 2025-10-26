@@ -20,6 +20,58 @@ It integrates high-performance Go microservices with Django for authentication, 
 | Containerization | Docker + Compose             | Deployment consistency       |
 
 
+/backend
+│
+├── Api/                       # Core Go backend (main API)
+│   ├── cmd/
+│   │   └── server/
+│   │       └── main.go
+│   ├── internal/
+│   │   ├── auth/             # JWT auth, middleware, password hashing
+│   │   ├── orders/           # CRUD + order workflow logic
+│   │   ├── payments/         # Stripe, M-Pesa, PayPal integration
+│   │   ├── vendors/          # Vendor management
+│   │   ├── products/         # Inventory management
+│   │   ├── notifications/    # Email/SMS/WebSocket
+│   │   ├── db/               # DB connection + migrations
+│   │   ├── middleware/       # Auth, rate limiting, logging
+│   │   └── utils/            # Shared helpers (env loader, etc.)
+│   ├── pkg/
+│   │   └── response/         # Standardized JSON responses
+│   ├── go.mod
+│   ├── go.sum
+│   └── Dockerfile
+│
+├── admin/                   # Django admin + analytics + AI
+│   ├── orderflow_ai/
+│   │   ├── ai_engine/        # OpenAI integration, analytics logic
+│   │   ├── reports/          # Reporting + insights
+│   │   ├── dashboards/       # Custom dashboards
+│   │   ├── notifications/    # Email alerts, scheduled tasks
+│   │   └── __init__.py
+│   ├── manage.py
+│   └── Dockerfile
+│
+├── db/
+│   ├── migrations/           # SQL migration scripts
+│   └── init.sql              # Initial DB setup
+│
+├── redis/
+│   └── redis.conf
+│
+├── docker/
+│   ├── go.Dockerfile
+│   ├── django.Dockerfile
+│   ├── postgres.Dockerfile
+│   ├── redis.Dockerfile
+│   └── nginx.Dockerfile
+│
+├── docker-compose.yml
+├── Makefile
+└── .env.example
+
+
+
 
 ## ⚙️ PART 1 — Setting Up the Development Environment (Windows)
 
