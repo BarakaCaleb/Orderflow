@@ -20,6 +20,8 @@ It integrates high-performance Go microservices with Django for authentication, 
 | Containerization | Docker + Compose             | Deployment consistency       |
 
 
+
+
 /backend
 │
 ├── Api/                       # Core Go backend (main API)
@@ -69,8 +71,6 @@ It integrates high-performance Go microservices with Django for authentication, 
 ├── docker-compose.yml
 ├── Makefile
 └── .env.example
-
-
 
 
 ## ⚙️ PART 1 — Setting Up the Development Environment (Windows)
